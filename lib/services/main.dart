@@ -39,7 +39,7 @@ class _GoyoScreenState extends State<GoyoScreen> {
 
     setState(() => _cargando = true);
 
-    // Llamada a la IA
+    // Llamada 
     final resultado = await _goyo.hablarConGoyo(_controller.text);
 
     setState(() {
