@@ -26,7 +26,7 @@ class GoyoScreen extends StatefulWidget {
 }
 
 class _GoyoScreenState extends State<GoyoScreen> {
-  // REEMPLAZA CON TU API KEY REAL
+  // REEMPLAZA CON TU API KEY REA
   final GoyoAI _goyo = GoyoAI('AIzaSyCaYt0rvdPPO18nqDLnfQwbgWLlwesWAno'); 
   
   final TextEditingController _controller = TextEditingController();
