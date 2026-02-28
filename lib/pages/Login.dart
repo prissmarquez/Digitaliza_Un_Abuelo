@@ -1,3 +1,4 @@
+import 'package:app_digitalizando_un_abuelo/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -73,10 +74,7 @@ class Login extends StatelessWidget {
 
                       /// Campo Nombre
                       TextField(
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: textDark,
-                        ),
+                        style: const TextStyle(fontSize: 20, color: textDark),
                         decoration: InputDecoration(
                           labelText: "Tu nombre",
                           hintText: "Ej. Lupita",
@@ -97,11 +95,18 @@ class Login extends StatelessWidget {
 
                       const SizedBox(height: 28),
 
-                      /// Botón grande accesible
+                      /// Botón
                       SizedBox(
                         height: 60,
                         child: ElevatedButton.icon(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            );
+                          },
                           icon: const Icon(Icons.arrow_forward),
                           label: const Text(
                             "Continuar",
