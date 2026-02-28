@@ -89,9 +89,9 @@ class _LoginState extends State<Login> {
                       ),
                       const SizedBox(height: 10),
                       const Text(
-                        "Escribe tu nombre y tu edad para personalizar la app.",
+                        "¿Cómo te llamas?",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 20,
                           height: 1.3,
                           color: Color(0xFF4A4A4A),
                         ),
@@ -122,30 +122,7 @@ class _LoginState extends State<Login> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Campo Edad
-                      TextField(
-                        controller: _ageCtrl,
-                        keyboardType: TextInputType.number,
-                        textInputAction: TextInputAction.done,
-                        onSubmitted: (_) => _continue(),
-                        style: const TextStyle(fontSize: 20, color: textDark),
-                        decoration: InputDecoration(
-                          labelText: "Tu edad",
-                          hintText: "Ej. 72",
-                          labelStyle: const TextStyle(fontSize: 18),
-                          hintStyle: const TextStyle(fontSize: 18),
-                          prefixIcon: const Icon(Icons.cake),
-                          filled: true,
-                          fillColor: const Color(0xFFFFFAF6),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            vertical: 18,
-                            horizontal: 14,
-                          ),
-                        ),
-                      ),
+                   
                       const SizedBox(height: 22),
 
                       // Botón grande (accesible)
@@ -173,15 +150,6 @@ class _LoginState extends State<Login> {
 
                       const SizedBox(height: 14),
 
-                      // Texto pequeño, claro
-                      const Text(
-                        "Tip: Puedes escribir solo números en la edad.",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Color(0xFF6B6B6B),
-                        ),
-                      ),
                     ],
                   ),
                 ),
