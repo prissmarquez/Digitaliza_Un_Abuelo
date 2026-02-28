@@ -1,47 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatefulWidget {
+class Login extends StatelessWidget {
   const Login({super.key});
-
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  final _nameCtrl = TextEditingController();
-  final _ageCtrl = TextEditingController();
-
-  @override
-  void dispose() {
-    _nameCtrl.dispose();
-    _ageCtrl.dispose();
-    super.dispose();
-  }
-
-  void _continue() {
-    final name = _nameCtrl.text.trim();
-    final age = int.tryParse(_ageCtrl.text.trim());
-
-    if (name.isEmpty || age == null || age <= 0 || age > 120) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Por favor escribe tu nombre y una edad válida."),
-        ),
-      );
-      return;
-    }
-
-    // Aquí puedes navegar o guardar en cache/local storage
-    // Ejemplo:
-    // Navigator.push(context, MaterialPageRoute(builder: (_) => Home(name: name, age: age)));
-    debugPrint("Nombre: $name, Edad: $age");
-  }
 
   @override
   Widget build(BuildContext context) {
     const warmBg = Color(0xFFFFF3E9);
-    const cardColor = Color(0xFFFFFFFF);
-    const warmAccent = Color(0xFFE07A5F); 
+    const cardColor = Colors.white;
+    const warmAccent = Color(0xFFE07A5F);
     const textDark = Color(0xFF2B2B2B);
 
     return Scaffold(
@@ -61,25 +27,29 @@ class _LoginState extends State<Login> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 20,
-                    vertical: 24,
+                    vertical: 26,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      // Encabezado
+                      /// Encabezado
                       Row(
                         children: const [
                           CircleAvatar(
-                            radius: 24,
+                            radius: 26,
                             backgroundColor: Color(0xFFFFE4D6),
-                            child: Icon(Icons.favorite, color: warmAccent),
+                            child: Icon(
+                              Icons.favorite,
+                              color: warmAccent,
+                              size: 28,
+                            ),
                           ),
-                          SizedBox(width: 12),
+                          SizedBox(width: 14),
                           Expanded(
                             child: Text(
-                              "¡Hola! Vamos a conocerte",
+                              "¡Hola! Bienvenido",
                               style: TextStyle(
-                                fontSize: 24, 
+                                fontSize: 26,
                                 fontWeight: FontWeight.w800,
                                 color: textDark,
                               ),
@@ -87,22 +57,26 @@ class _LoginState extends State<Login> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10),
+
+                      const SizedBox(height: 12),
+
                       const Text(
-                        "¿Cómo te llamas?",
+                        "Para comenzar, escribe tu nombre.\nAsí podremos saludarte 😊",
                         style: TextStyle(
-                          fontSize: 20,
-                          height: 1.3,
+                          fontSize: 18,
+                          height: 1.4,
                           color: Color(0xFF4A4A4A),
                         ),
                       ),
-                      const SizedBox(height: 20),
 
-                      // Campo Nombre
+                      const SizedBox(height: 24),
+
+                      /// Campo Nombre
                       TextField(
-                        controller: _nameCtrl,
-                        textInputAction: TextInputAction.next,
-                        style: const TextStyle(fontSize: 20, color: textDark),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: textDark,
+                        ),
                         decoration: InputDecoration(
                           labelText: "Tu nombre",
                           hintText: "Ej. Lupita",
@@ -110,26 +84,24 @@ class _LoginState extends State<Login> {
                           hintStyle: const TextStyle(fontSize: 18),
                           prefixIcon: const Icon(Icons.person),
                           filled: true,
-                          fillColor: const Color(0xFFFFFAF6),
+                          fillColor: Color(0xFFFFFAF6),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
                           contentPadding: const EdgeInsets.symmetric(
-                            vertical: 18,
-                            horizontal: 14,
+                            vertical: 20,
+                            horizontal: 16,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
 
-                   
-                      const SizedBox(height: 22),
+                      const SizedBox(height: 28),
 
-                      // Botón grande (accesible)
+                      /// Botón grande accesible
                       SizedBox(
-                        height: 58,
+                        height: 60,
                         child: ElevatedButton.icon(
-                          onPressed: _continue,
+                          onPressed: () {},
                           icon: const Icon(Icons.arrow_forward),
                           label: const Text(
                             "Continuar",
@@ -150,6 +122,14 @@ class _LoginState extends State<Login> {
 
                       const SizedBox(height: 14),
 
+                      const Text(
+                        "Puedes pedir ayuda si lo necesitas.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF6B6B6B),
+                        ),
+                      ),
                     ],
                   ),
                 ),
